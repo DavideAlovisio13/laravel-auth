@@ -19,7 +19,10 @@ class ProjectSeeder extends Seeder
             $new_project->name = $faker->name;
             $new_project->title = $faker->sentence(3);
             $new_project->description = $faker->text();
+            $new_project->create_at = $faker->dateTime();
             $new_project->slug = Project::generateSlug($new_project->title);
+            $new_project->save();
+
         }
     }
 }
