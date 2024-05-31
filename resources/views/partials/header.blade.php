@@ -1,4 +1,4 @@
-{{-- <header class="shadow-sm">
+<header class="shadow-sm">
     <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white">
         <!-- Container wrapper -->
         <div class="container-fluid">
@@ -44,4 +44,4 @@
         </div>
     </nav>
 
-</header> --}}
+</header>
