@@ -9,6 +9,38 @@ $fa-font-path: "../fonts/webfonts" !default;
 
 // @import '~bootstrap/scss/bootstrap';
 
+//roots
+:root {
+    --color-primary: #6C9BCF;
+    --color-danger: #FF0060;
+    --color-success: #1B9C85;
+    --color-warning: #F7D060;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.dark-mode-variables {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
 // general styles
 * {
     margin: 0;
@@ -211,15 +243,86 @@ b {
 
 // wrapper styles
 #wrapper {
-    flex-grow: 1;
+    main {
+        margin-top: 1.4rem;
 
-    // header styles
-    header {
-        min-height: 70px;
+        .analyse {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.6rem;
 
-        .img-profile {
-            height: 2rem;
-            width: 2rem;
+            >div {
+                background-color: var(--color-white);
+                padding: var(--card-padding);
+                border-radius: var(--card-border-radius);
+                margin-top: 1rem;
+                box-shadow: var(--box-shadow);
+                cursor: pointer;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    box-shadow: none;
+                }
+
+                .status {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                h3 {
+                    margin-left: 0.6rem;
+                    font-size: 1rem;
+                }
+
+                .progresss {
+                    position: relative;
+                    width: 92px;
+                    height: 92px;
+                    border-radius: 50%;
+                }
+
+                svg {
+                    width: 7rem;
+                    height: 7rem;
+
+                    circle {
+                        fill: none;
+                        stroke-width: 10;
+                        stroke-linecap: round;
+                        transform: translate(5px, 5px);
+                    }
+                }
+
+                &.sales svg circle {
+                    stroke: var(--color-success);
+                    stroke-dashoffset: -30;
+                    stroke-dasharray: 200;
+                }
+
+                &.visits svg circle {
+                    stroke: var(--color-danger);
+                    stroke-dashoffset: -30;
+                    stroke-dasharray: 200;
+                }
+
+                &.searches svg circle {
+                    stroke: var(--color-primary);
+                    stroke-dashoffset: -30;
+                    stroke-dasharray: 200;
+                }
+
+                .percentage {
+                    position: absolute;
+                    top: -3px;
+                    left: -1px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
         }
     }
 }
