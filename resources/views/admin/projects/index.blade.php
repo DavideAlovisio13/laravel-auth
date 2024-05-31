@@ -30,14 +30,14 @@
                         <td>{{ $project->description }}</td>
                         <td>{{ $project->created_at }}</td>
                         <td>
-                            <a href="{{ route('admin.projects.show', $post->slug) }}"><i class="fa-solid fa-eye"></i></a>
-                            <a href="{{ route('admin.projects.edit', $post->slug) }}"><i class="fa-solid fa-pen"></i></a>
-                            <form action="{{ route('admin.projects.destroy', $post->slug) }}" method="POST"
+                            <a href="{{ route('admin.projects.show', $project->slug) }}"><i class="fa-solid fa-eye"></i></a>
+                            <a href="{{ route('admin.projects.edit', $project->slug) }}"><i class="fa-solid fa-pen"></i></a>
+                            <form action="{{ route('admin.projects.destroy', $project->slug) }}" method="POST"
                                 class="d-inline-block">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="delete-button border-0 bg-transparent"
-                                    data-item-title="{{ $projects->title }}">
+                                    data-item-title="{{ $project->title }}">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
 
