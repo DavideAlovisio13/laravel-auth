@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
-<div class="container">
+{{-- <div class="container">
     <table class="table">
         <thead>
           <tr>
@@ -24,5 +24,5 @@
             @endforeach
         </tbody>
       </table>
-</div>
+</div> --}}
 @endsection

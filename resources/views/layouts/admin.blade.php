@@ -8,12 +8,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ @yield('title', 'Admin') }}</title>
+    <title>@yield('title', 'Admin')</title>
 
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
@@ -23,7 +24,7 @@
     <div id="admin">
         @include('partials.sidebar')
         <div id="wrapper">
-            @include('partials.hearder')
+            @include('partials.header')
             <main class="container-fluid">
                 @yield('content')
             </main>
