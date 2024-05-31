@@ -22,7 +22,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
@@ -30,7 +30,10 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form_data = $request->all();
+        $form_data['slug'] = Project::generateSlug($form_data['title']);
+        $newProject = Project::create($form_data);
+        return redirect()->route('admin.projects.show', $newProject->slug);
     }
 
     /**
@@ -38,7 +41,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
@@ -56,12 +59,12 @@ class ProjectController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return redirect()->route('admin.projects.index')->with('message', $project->title . ' è stato eliminato');
     }
 }
