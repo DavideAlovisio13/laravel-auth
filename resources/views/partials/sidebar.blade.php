@@ -1,5 +1,5 @@
 <nav id="sidebar" class="bg-dark navbar-dark">
-    <div>
+    <div id="top-sidebar">
         <a href="/" class="nav-link text-white">
             <h2 class="p-2">
                 <i class="fa-solid fa-square-rss pe-2"></i>Admin
@@ -17,7 +17,7 @@
                         class="fa-solid fa-newspaper fa-lg fa-fw pe-4"></i>Projects</a>
             </li>
     </div>
-    <div>
+    <div id="bottom-sidebar">
         <ul>
             <li class="nav-item border-top border-2 border-white align-items-end list-unstyled pt-3">
                 <a class="nav-link me-3 me-lg-0" href="{{ route('logout') }}"
@@ -32,5 +32,4 @@
             </li>
         </ul>
     </div>
-    </ul>
 </nav>

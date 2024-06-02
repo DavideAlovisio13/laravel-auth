@@ -23,22 +23,28 @@ $fa-font-path: "../fonts/webfonts" !default;
         flex-direction: column;
         justify-content: space-between;
         background-color: #000000;
-        background-image: url("/images/wavey-fingerprint.svg");
+        background-image: url("/images/slanted-gradient.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
 
-        .nav-link {
-            color: $white;
+        #top-sidebar {
+            .nav-link {
+                color: $white;
 
-            &:hover {
-                color: $red-color !important;
-                transform: scale(1.1) translateX(5px);
-                transition: 0.5s;
-                transition-timing-function: ease;
+                &:hover {
+                    color: $red-color !important;
+                    transform: scale(1.1) translateX(5px);
+                    transition: 0.5s;
+                    transition-timing-function: ease;
+                }
             }
         }
     }
 
     #wrapper {
         width: calc(100% - 200px);
+        height: calc(100% - 70px);
+
 
 
         header {
