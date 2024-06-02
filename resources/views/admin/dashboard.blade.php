@@ -8,6 +8,7 @@
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
+                <a href="{{ route('admin.projects.index') }}"><h1>Projects</h1></a>
                 <div class="card-header">{{ __('User Dashboard') }}</div>
 
                 <div class="card-body">
