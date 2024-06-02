@@ -45,6 +45,22 @@ $fa-font-path: "../fonts/webfonts" !default;
         width: calc(100% - 200px);
         height: calc(100% - 70px);
 
+        .table-group-divider {
+            border-top: $red-color 2px solid !important;
+        }
+
+        .social_card {
+
+            &:hover {
+                transform: scale(1.1);
+                transition: 0.5s;
+                transition-timing-function: ease;
+                color: $red-color !important;
+
+            }
+
+        }
+
 
 
         header {
