@@ -55,7 +55,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <a href="{{ route('admin.projects.create') }}" class="btn btn-danger">Crea nuovo post</a>
+                    <a href="{{ route('admin.projects.create') }}" class="btn btn-danger">Create a new post</a>
                 </div>
             </div>
             <div class="col-sm-4">

@@ -45,11 +45,11 @@ document.addEventListener("DOMContentLoaded", () => {
             plugins: {
                 legend: {
                     labels: {
-                        color: 'white' 
+                        color: 'white'
                     }
                 },
                 tooltip: {
-                    titleColor: 'white', 
+                    titleColor: 'white',
                     bodyColor: 'white',
                     footerColor: 'white',
                 }
@@ -98,11 +98,11 @@ document.addEventListener("DOMContentLoaded", () => {
             plugins: {
                 legend: {
                     labels: {
-                        color: 'white' 
+                        color: 'white'
                     }
                 },
                 tooltip: {
-                    titleColor: 'white', 
+                    titleColor: 'white',
                     bodyColor: 'white'
                 }
             }
@@ -149,11 +149,11 @@ document.addEventListener("DOMContentLoaded", () => {
             plugins: {
                 legend: {
                     labels: {
-                        color: 'white' 
+                        color: 'white'
                     }
                 },
                 tooltip: {
-                    titleColor: 'white', 
+                    titleColor: 'white',
                     bodyColor: 'white'
                 }
             }
@@ -161,5 +161,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// delete modal 
 
+const deleteSubmitButtons = document.querySelectorAll(".delete-button");
+
+deleteSubmitButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const dataTitle = button.getAttribute("data-item-title");
+
+        const modal = document.getElementById("deleteModal");
+
+        const bootstrapModal = new bootstrap.Modal(modal);
+        bootstrapModal.show();
+
+        const modalItemTitle = modal.querySelector("#modal-item-title");
+        modalItemTitle.textContent = dataTitle;
+
+        const buttonDelete = modal.querySelector("button.btn-danger");
+
+        buttonDelete.addEventListener("click", () => {
+            button.parentElement.submit();
+        });
+    });
+});
 
