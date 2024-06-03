@@ -8,32 +8,35 @@
         @endif
         <div class="d-flex justify-content-between align-items-center py-4">
             <h1 class="text-danger">Projects</h1>
-            <a href="{{ route('admin.projects.create') }}" class="btn btn-primary">Crea nuovo post</a>
+            <a href="{{ route('admin.projects.create') }}" class="btn btn-danger">Crea nuovo post</a>
         </div>
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-8 ">
                 <div class="card">
                     <div class="card-body">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col" class="text-danger">Id</th>
-                                    <th scope="col" class="text-danger">Name</th>
-                                    <th scope="col" class="text-danger">Title</th>
-                                    <th scope="col" class="text-danger">Description</th>
-                                    <th scope="col" class="text-danger">Create at</th>
-                                    <th scope="col" class="text-danger">Actions</th>
+                                    <th scope="col" class="text-danger bg-transparent">Id</th>
+                                    <th scope="col" class="text-danger bg-transparent">Name</th>
+                                    <th scope="col" class="text-danger bg-transparent">Title</th>
+                                    <th scope="col" class="text-danger bg-transparent">Description</th>
+                                    <th scope="col" class="text-danger bg-transparent">Create at</th>
+                                    <th scope="col" class="text-danger bg-transparent">Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">
                                 @foreach ($projects->take(4) as $project)
                                     <tr>
-                                        <td>{{ $project->id }}</td>
-                                        <td>{{ $project->name }}</td>
-                                        <td>{{ $project->title }}</td>
-                                        <td>{{ $project->description }}</td>
-                                        <td>{{ $project->created_at }}</td>
-                                        <td class="d-flex flex-column justify-content-center align-items-center">
+                                        <td class="bg-transparent text-white border-bottom-0">{{ $project->id }}</td>
+                                        <td class="bg-transparent text-white border-bottom-0">{{ $project->name }}</td>
+                                        <td class="bg-transparent text-white border-bottom-0">{{ $project->title }}</td>
+                                        <td class="bg-transparent text-white border-bottom-0">{{ $project->description }}
+                                        </td>
+                                        <td class="bg-transparent text-white border-bottom-0">{{ $project->created_at }}
+                                        </td>
+                                        <td
+                                            class=" bg-transparent text-white d-flex border-bottom-0 flex-column justify-content-center align-items-center">
                                             <a href="{{ route('admin.projects.show', $project->slug) }}"><i
                                                     class="fa-solid text-danger fa-eye"></i></a>
                                             <a href="{{ route('admin.projects.edit', $project->slug) }}"><i
@@ -60,7 +63,7 @@
                     <div class="container text-center d-flex flex-column">
                         <div class="row">
                             <div class="col p-2">
-                                <img src="/images/404-det.jpg" class="card-img-top rounded-circle p-1"
+                                <img src="/images/logo.png" class="card-img-top rounded-circle p-1"
                                     style="width: 300px height: 300px" alt="logo-profile">
                             </div>
                             <div class="col align-items-center justify-content-center d-flex">
@@ -70,22 +73,22 @@
                         <div class="row pt-4 fs-1 text-white">
                             <div
                                 class="col social_card my-4 d-flex flex-column justify-content-center align-content-center">
-                                <a href=""><i class="fa-brands fa-github fa-2xl text-danger"></i></a>
+                                <a href="https://github.com/DavideAlovisio13"><i class="fa-brands fa-github fa-2xl text-danger"></i></a>
                                 <h4 class="pt-3">GitHub</h4>
                             </div>
                             <div
                                 class="col social_card my-4 d-flex flex-column justify-content-center align-content-center">
-                                <a href=""><i class="fa-brands fa-facebook fa-2xl text-danger"></i></a>
+                                <a href="https://it-it.facebook.com/index.php/"><i class="fa-brands fa-facebook fa-2xl text-danger"></i></a>
                                 <h4 class="pt-3">Facebook</h4>
                             </div>
                             <div
                                 class="col social_card my-4 d-flex flex-column justify-content-center align-content-center">
-                                <a href=""><i class="fa-brands fa-instagram fa-2xl text-danger"></i></a>
+                                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram fa-2xl text-danger"></i></a>
                                 <h4 class="pt-3">Instagram</h4>
                             </div>
                             <div
                                 class="col social_card my-4 d-flex flex-column justify-content-center align-content-center">
-                                <a href=""><i class="fa-brands fa-x-twitter fa-2xl text-danger"></i></a>
+                                <a href="https://x.com/x."><i class="fa-brands fa-x-twitter fa-2xl text-danger"></i></a>
                                 <h4 class="pt-3">Twitter</h4>
                             </div>
                         </div>
@@ -93,36 +96,18 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row my-5">
             <div class="col-sm">
-                <div class="card text-bg-danger mb-3" style="max-width: 18rem;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Danger card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
-                    </div>
-                </div>
+                <h2 class="text-danger">Total Revenue</h2>
+                <canvas id="polarArea" style="width:300px height: 300px"></canvas>
             </div>
             <div class="col-sm">
-                <div class="card text-bg-success mb-3" style="max-width: 18rem;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Success card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
-                    </div>
-                </div>
+                <h2 class="text-danger">Total Expenses</h2>
+                <canvas id="doughnut" style="width:300px height: 300px"></canvas>
             </div>
-            <div class="col-sm">
-                <div class="card text-bg-warning mb-3" style="max-width: 18rem;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Warning card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
-                    </div>
-                </div>
+            <div class="col-sm d-flex justify-content-center align-items-center flex-column">
+                <h2 class="text-danger">Traffic stats</h2>
+                <canvas id="barchart"></canvas>
             </div>
         </div>
     </section>

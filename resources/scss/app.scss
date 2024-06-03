@@ -49,9 +49,12 @@ $fa-font-path: "../fonts/webfonts" !default;
     }
 
     .card {
-        border-radius: 10%;
-        background-color: transparent !important;
-        box-shadow: 0px 7px 41px -7px rgba(220, 38, 38, 0.75);
+        border-radius: 10px;
+        background-image: url("/images/slanted-gradient.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: none !important;
+        box-shadow: 0 0 16px $red-color;
 
         .table-group-divider {
             border-top: $red-color 2px solid !important;
@@ -64,10 +67,19 @@ $fa-font-path: "../fonts/webfonts" !default;
                 transition: 0.5s;
                 transition-timing-function: ease;
                 color: $red-color !important;
-
             }
 
         }
+    }
+
+    canvas {
+        padding: 2rem;
+        border-radius: 1rem;
+        background: transparent;
+        box-shadow: 0 0 16px $red-color;
+        background-image: url("/images/slanted-gradient.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 }
 
