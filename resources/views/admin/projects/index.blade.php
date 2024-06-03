@@ -8,7 +8,6 @@
         @endif
         <div class="d-flex justify-content-between align-items-center py-4">
             <h1 class="text-danger">Projects</h1>
-            <a href="{{ route('admin.projects.create') }}" class="btn btn-danger">Crea nuovo post</a>
         </div>
         <div class="row">
             <div class="col-sm-8 ">
@@ -26,7 +25,7 @@
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">
-                                @foreach ($projects->take(4) as $project)
+                                @foreach ($projects->take(6) as $project)
                                     <tr>
                                         <td class="bg-transparent text-white border-bottom-0">{{ $project->id }}</td>
                                         <td class="bg-transparent text-white border-bottom-0">{{ $project->name }}</td>
@@ -56,6 +55,7 @@
                             </tbody>
                         </table>
                     </div>
+                    <a href="{{ route('admin.projects.create') }}" class="btn btn-danger">Crea nuovo post</a>
                 </div>
             </div>
             <div class="col-sm-4">
