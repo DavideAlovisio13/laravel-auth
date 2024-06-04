@@ -186,4 +186,3 @@ deleteSubmitButtons.forEach((button) => {
         });
     });
 });
-

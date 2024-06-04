@@ -7,8 +7,9 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use Illuminate\Support\Facades\Storage;
 
-//use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 class ProjectController extends Controller
 {
     /**
@@ -35,6 +36,12 @@ class ProjectController extends Controller
     {
         $form_data = $request->validated();
         $form_data['slug'] = Project::generateSlug($form_data['title']);
+        if($request->hasFile('image')) {
+            $name= $request->file('image')->getClientOriginalName();
+            $path = Storage::putFileAs('post_images', $request->image, $name);
+            $form_data['image'] = $path;
+            
+        }
         $newProject = Project::create($form_data);
         return redirect()->route('admin.projects.show', $newProject->slug);
     }
@@ -60,14 +67,14 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        $form_data = $request->all();
+        $form_data = $request->validated();
         if ($project->title !== $form_data['title']) {
             $form_data['slug'] = Project::generateSlug($form_data['title']);
         }
-        //DB::enableQueryLog();
-        $project->update($form_data);
-        //$query = DB::getQueryLog();
-        //dd($query);
+        DB::enableQueryLog();
+        //$project->update($form_data);
+        $query = DB::getQueryLog();
+        dd($query);
         return redirect()->route('admin.projects.show', $project->slug);
     }
     /**
