@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 
+//use Illuminate\Support\Facades\DB;
 class ProjectController extends Controller
 {
     /**
@@ -15,7 +16,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::paginate(5);
         return view('admin.projects.index', compact('projects'));
     }
 
@@ -32,7 +33,7 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        $form_data = $request->all();
+        $form_data = $request->validated();
         $form_data['slug'] = Project::generateSlug($form_data['title']);
         $newProject = Project::create($form_data);
         return redirect()->route('admin.projects.show', $newProject->slug);
@@ -59,9 +60,15 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        $form_data = $request->validated();
-        $project->update($form_data); 
-        return redirect()->route('admin.projects.show', $project->slug)->with('message', $project->title . ' è stato aggiornato');
+        $form_data = $request->all();
+        if ($project->title !== $form_data['title']) {
+            $form_data['slug'] = Project::generateSlug($form_data['title']);
+        }
+        //DB::enableQueryLog();
+        $project->update($form_data);
+        //$query = DB::getQueryLog();
+        //dd($query);
+        return redirect()->route('admin.projects.show', $project->slug);
     }
     /**
      * Remove the specified resource from storage.

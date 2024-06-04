@@ -25,7 +25,7 @@
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">
-                                @foreach ($projects->take(6) as $project)
+                                @foreach ($projects as $project)
                                     <tr>
                                         <td class="bg-transparent text-white border-bottom-0">{{ $project->id }}</td>
                                         <td class="bg-transparent text-white border-bottom-0">{{ $project->name }}</td>
@@ -54,6 +54,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{$projects->links('vendor.pagination.bootstrap-5')}}
                     </div>
                     <a href="{{ route('admin.projects.create') }}" class="btn btn-danger">Create a new post</a>
                 </div>
@@ -111,5 +112,5 @@
             </div>
         </div>
     </section>
-    @include('partials.modal-delete')
+    @include('partials.modal-delete');
 @endsection

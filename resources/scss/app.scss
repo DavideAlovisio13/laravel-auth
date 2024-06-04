@@ -7,6 +7,11 @@ $fa-font-path: "../fonts/webfonts" !default;
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~@fortawesome/fontawesome-free/scss/brands";
 
+$pagination-active-bg: $red-color !default;
+$pagination-color: $red-color !default;
+$pagination-active-color:white !default;
+$pagination-active-border-color: grey !default;
+
 @import '~bootstrap/scss/bootstrap';
 
 #admin {
