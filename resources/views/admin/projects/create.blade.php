@@ -6,7 +6,7 @@
     <section class="container vh-100 d-flex justify-content-center align-items-center">
         <div class="card w-75 p-4">
             <h2>Create a new project</h2>
-            <form action="{{ route('admin.projects.store') }}" method="POST">
+            <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Nome</label>
@@ -40,6 +40,15 @@
                     <input type="datetime-local" class="form-control @error('create_at') is-invalid @enderror"
                         id="create_at" name="create_at" value="{{ old('create_at') }}">
                     @error('create_at')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    <div id="titleHelp" class="form-text text-white">Inserire un valore</div>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">immagine</label>
+                    <input type="file" accept="image/*" class="form-control @error('image') is-invalid @enderror"
+                        id="image" name="image" value="{{ old('image') }}">
+                    @error('image')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     <div id="titleHelp" class="form-text text-white">Inserire un valore</div>
